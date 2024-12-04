@@ -1,0 +1,10 @@
+Note of things I still need to do
+
+
+Create Basic Guide for reading and modifying the Flash data.
+
+Create Guide for enabling UART
+
+Create guide for cross compiling
+
+Create guide for using custom ROMs
