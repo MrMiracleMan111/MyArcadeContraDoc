@@ -23,3 +23,20 @@ Now that we have a dump of the entire flash memory, we find the part that contai
 ```bash
 binwalk -e ~/Desktop/nand_dumps/nand_dump.bin
 ```
+
+![image](BinwalkCapture.png)
+
+Your output will not match this exactly (this is a `binwalk` analysis of the current NAND Flash in my Console which is heavily modified). What's important is the address of the **squashfs** filesystem which is 16777216 (I'm assuming this address will be the same for anyone's MyArcade Console), we'll need this later. The `binwalk` program will extract all files into a `_nand_dump_bin.extracted` folder (your extracted files will not look like mine since I have modified my console's filesystem memory). 
+
+![image](ExtractedBinariesCapture.png)
+
+Change directory into the `squashfs-root`. We should see a directory similar to this.
+
+![image](ConsoleFilesystemCapture.png)
+
+You can now dive into the filesystem and check what programs are available (`usr/bin` has some interesting programs). For this tutotiral we are interested in the `usr/lib/libretro` folder. This contains the emulators and games available to the console. You should see the following emulators
+
+1. `fbalpha_libretro.so`
+2. `mame2016_libretro.so`
+
+If you look in the `games` folder (this folder may not exist and have been something I added during modding) you should see `fzip` and `mzip`. I know `fzip` contains Contra ROMs for the **fbalpha** emulator which implies that `mzip` contains Contra ROMs for the **mame2016** emulator.
