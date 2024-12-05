@@ -1,6 +1,11 @@
 # Writing to Flash
 Previously we learned how to read flash memory from the MyArcade Contra console. While checking out the filesystem on the console is cool, what we really want is to be able to modify the filesystem and write that modified filesystem to the flash memory of the console.
 
+**IMPORTANT NOTE:** Writing data to the wrong address with the `rkflashtool` will brick your device (I have already done it with one console) making you unable to flash it again using `rkflashtool`. You will have to manually solder onto the SPI Flash and overwrite it with a microcontroller. 
+
+
+**IMPORTANT NOTE:** To perform write operations on the flash the console needs to be in Mask ROM Mode, you can enable this by holding down the Volume Up button during boot sequence. You can disable this by rebooting the device. More on this can be found in the [Reading From Flash Memory](ReadingFlash.md) article. 
+
 ## Squashing the Filesystem
 This console compresses its filesystem using the squashfs. To write our modified filesystem back to the console we first need to squash it using the `mksquashfs` tool.
 
@@ -9,7 +14,7 @@ We can use the following command to compress the **squashfs-root** folder the co
 mksquashfs _nand_dump.bin.extracted/squashfs-root squashfs-root.bin -comp gzip -b 131072
 ```
 
-![image](SquashFilesystemCapture.png)
+![image](web/SquashFilesystemCapture.png)
 
 Before we flash the chip we will need to take note of the size of the `squashfs-root.bin` file. We can use the `wc` command to count the number of bytes in the `squashfs-root.bin` file.
 

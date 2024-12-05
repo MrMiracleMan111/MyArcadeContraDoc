@@ -24,15 +24,15 @@ Now that we have a dump of the entire flash memory, we find the part that contai
 binwalk -e ~/Desktop/nand_dumps/nand_dump.bin
 ```
 
-![image](BinwalkCapture.png)
+![image](web/BinwalkCapture.png)
 
 Your output will not match this exactly (this is a `binwalk` analysis of the current NAND Flash in my Console which is heavily modified). What's important is the address of the **squashfs** filesystem which is 16777216 (I'm assuming this address will be the same for anyone's MyArcade Console), we'll need this later. The `binwalk` program will extract all files into a `_nand_dump_bin.extracted` folder (your extracted files will not look like mine since I have modified my console's filesystem memory). 
 
-![image](ExtractedBinariesCapture.png)
+![image](web/ExtractedBinariesCapture.png)
 
 Change directory into the `squashfs-root`. We should see a directory similar to this.
 
-![image](ConsoleFilesystemCapture.png)
+![image](web/ConsoleFilesystemCapture.png)
 
 You can now dive into the filesystem and check what programs are available (`usr/bin` has some interesting programs). For this tutotiral we are interested in the `usr/lib/libretro` folder. This contains the emulators and games available to the console. You should see the following emulators
 

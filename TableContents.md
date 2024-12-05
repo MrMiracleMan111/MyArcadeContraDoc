@@ -11,11 +11,10 @@ After a year of work I have met these goals and am writing this article in the h
 ## The Basics
 1. [Reading the Flash Memory](ReadingFlash.md)
 2. [Modifying the Flash Memory](WritingFlash.md)
-3. [Loading ROM Files](LoadingROMs.md)
-4. Enabling UART
-5. Connecting to UART
+3. [Adding ROMs and Emulators](AddingROMAndEmulators.md)
+4. Enabling UART (TODO)
+5. Connecting to UART (TODO)
 
 ## Advanced
-1. Compiling for the Console
-2. SDL2 modifications
-3. Adding ROMs
+1. Compiling for the Console (TODO)
+2. SDL2 modifications (TODO)
