@@ -6,6 +6,19 @@ Previously we learned how to read flash memory from the MyArcade Contra console.
 
 **IMPORTANT NOTE:** To perform write operations on the flash the console needs to be in Mask ROM Mode, you can enable this by holding down the Volume Up button during boot sequence. You can disable this by rebooting the device. More on this can be found in the [Reading From Flash Memory](ReadingFlash.md) article. 
 
+## Backing up your Console
+**IMPORTANT** Before you make any modifications you need to backup your Flash Memory. Going forward without a backup is extremely dangerous. To make a backup you can use the following command while the console is connected and in Mask ROM Mode. 
+
+```bash
+sudo ./rkflashtool r 0 262144 > ~/Desktop/backup_nand/nand_dump.bin
+```
+
+If you need to restore your console using a backup you can use the following command (assuming you have made a backup):
+
+```bash
+sudo ./rkflashtool w 0 262144 < ~/Desktop/backup_nand/nand_dump.bin
+```
+
 ## Squashing the Filesystem
 This console compresses its filesystem using the squashfs. To write our modified filesystem back to the console we first need to squash it using the `mksquashfs` tool.
 
