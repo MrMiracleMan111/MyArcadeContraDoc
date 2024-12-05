@@ -1,4 +1,4 @@
-# Loading ROMs to MyArcade Console
+# Adding ROMs and Emulators
 
 This article assumes you have read the [Reading From Flash Memory](ReadingFlash.md) guide and the [Writing to Flash](WritingFlash.md) guide.
 
@@ -30,7 +30,7 @@ is what boots the Contra game select application where users can select the Cont
 ## Analyzing the Game Application
 If we run `strings usr/bin/game` we can get a list of all strings within the `game` binary. This can tell us what commands are being used to load the Contra games. Three strings are of particular interest:
 
-![image](GameBinaryAnalysis.png)
+![image](web/GameBinaryAnalysis.png)
 
 ```
 /usr/lib/libretro/games/start.sh %d "%s" "%s"
@@ -58,11 +58,11 @@ So, to initiate a Contra game instance we will need, the config file, the emulat
 
 Looking at the `usr/bin/game` strings we can see some possible config files
 
-![image](LibretroConfigFilesCapture.png)
+![image](web/LibretroConfigFilesCapture.png)
 
 We can also find some possible ROMs listed as `.zip` files. I'm assuming `fzip` stands for **fbalpha** zip ROMs and `mzip` stands for **mame2016** zip ROMs. 
 
-![image](ContraZipFilesCapture.png)
+![image](web/ContraZipFilesCapture.png)
 
 In the `usr/lib/start.sh` file we can see that emulator being used is
 
@@ -114,7 +114,7 @@ Now, when the console boots, it should immediately run Contra for single player 
 ## Adding Emulators
 If we want to add other emulators, we need to find their shared object files `<emulator>.so`. Finding these files is a bit tricky. After some digging (checking for `buildbot` urls listed in the console's filesystem) I found a [link](https://buildbot.libretro.com/nightly/linux/armhf/latest/) to a repository of compiled emulator binaries that may work on this console.
 
-![image](EmulatorBinariesCapture.png)
+![image](web/EmulatorBinariesCapture.png)
 
 So far I have been able to get the [nestopia]() and [dosbox]() emulators to work on this (dosbox can even run DOOM however, the input mappings need to be fixed). Currently we are using precompiled binaries from the `nightly > linux > armhf > latest` list however since the **RK3128** contains an Arm7 chip with a neon FPU and Hardware Float (HF) we should also be able to use some precompiled binaries from the `nightly > linux > armv7-neon-hf > latest` list.
 
@@ -155,10 +155,10 @@ if [ `cat /sys/class/drm/card0-HDMI-A-1/status` == "connected" ]; then
     -L "/usr/lib/libretro/nestopia_libretro.so" "/usr/lib/libretro/games/nes/MicroMages.nes" &
 ```
 
-![image](MicroMagesTitleCapture.jpg)
-![image](MicroMagesGameplayCapture.jpg)
+![image](web/MicroMagesTitleCapture.jpg)
+![image](web/MicroMagesGameplayCapture.jpg)
 
 
 The Homebtew [Space Gulls](https://morphcatgames.itch.io/spacegulls) game also runs on the **nestopia** emulator:
-![image](SpaceGullTitleCapture.jpg)
-![image](SpaceGullGameplayCapture.jpg)
+![image](web/SpaceGullTitleCapture.jpg)
+![image](web/SpaceGullGameplayCapture.jpg)
