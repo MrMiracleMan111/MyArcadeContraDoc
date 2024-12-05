@@ -9,10 +9,11 @@ Last year I learned about hardware hacking and was looking for a way to get into
 After a year of work I have met these goals and am writing this article in the hope that anyone with similar aspirations can use this as a fallback if they get stuck. 
 
 ## The Basics
-1. Reading the Flash Memory
-2. Modifying the Flash Memory
-3. Enabling UART
-4. Connecting to UART
+1. [Reading the Flash Memory](ReadingFlash.md)
+2. [Modifying the Flash Memory](WritingFlash.md)
+3. [Loading ROM Files](LoadingROMs.md)
+4. Enabling UART
+5. Connecting to UART
 
 ## Advanced
 1. Compiling for the Console

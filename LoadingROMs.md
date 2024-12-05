@@ -4,7 +4,7 @@ This article assumes you have read the [Reading From Flash Memory](ReadingFlash.
 
 
 ## Contra Console Game System
-Poking around the `etc/init.d` we can see some startup scripts run when the console boots. For us the file  
+Poking around the `etc/init.d` we can see some startup scripts that run when the console boots. For us the file  
 
 `etc/init.d/S50ui`
 
@@ -110,3 +110,12 @@ if [ `cat /sys/class/drm/card0-HDMI-A-1/status` == "connected" ]; then
 ```
 
 Now, when the console boots, it should immediately run Contra for single player using the mame 2016 emulator.
+
+## Adding Emulators
+If we want to add other emulators, we need to find their shared object files `<emulator>.so`. Finding these files is a bit tricky. After some digging (checking for `buildbot` urls listed in the console's filesystem) I found a [link](https://buildbot.libretro.com/nightly/linux/armhf/latest/) to a repository of compiled emulator binaries that may work on this console.
+
+![image](EmulatorBinariesCapture.png)
+
+So far I have been able to get the [nestopia]() and [dosbox]() emulators to work on this (dosbox can even run DOOM! however the input mappings need to be fixed). Currently we are using precompiled binaries from the `nightly > linux > armhf > latest` list however since the **RK3128** contains an Arm7 chip with a neon FPU and Hardware Float (HF) we should also be able to use some precompiled binaries from the `nightly > linux > armv7-neon-hf > latest` list.
+
+After downloading the `<emulator.so>` (*ex.* nestopia.so) we can move that file to the same directory (`usr/lib/libretro`) as the the **fbalpha** and **mame2016** emulators in. Now you can run NES ROMs. [itch.io](itch.io) has some hoembrew NES games made by some awesome devs. Personally I tried that Space Gulls game and the Micro Mages games 
