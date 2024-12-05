@@ -81,7 +81,7 @@ Now that we have all the information needed to construct a command to initiate a
     -L "/usr/lib/libretro/mame2016_libretro.so" "/usr/lib/libretro/games/mzip/contra1.zip"
 ```
 
-If we wanted to run this command immediately the console boots we could modify the `/etc/init.d/S50ui` file by replacing `/usr/bin/game &` with the command above:
+If we wanted to run this command immediately after the console boots, we could modify the `/etc/init.d/S50ui` file by replacing `/usr/bin/game &` with the command above:
 
 (**S50ui** around line 29)
 ```bash
@@ -116,18 +116,18 @@ If we want to add other emulators, we need to find their shared object files `<e
 
 ![image](EmulatorBinariesCapture.png)
 
-So far I have been able to get the [nestopia]() and [dosbox]() emulators to work on this (dosbox can even run DOOM! however the input mappings need to be fixed). Currently we are using precompiled binaries from the `nightly > linux > armhf > latest` list however since the **RK3128** contains an Arm7 chip with a neon FPU and Hardware Float (HF) we should also be able to use some precompiled binaries from the `nightly > linux > armv7-neon-hf > latest` list.
+So far I have been able to get the [nestopia]() and [dosbox]() emulators to work on this (dosbox can even run DOOM however, the input mappings need to be fixed). Currently we are using precompiled binaries from the `nightly > linux > armhf > latest` list however since the **RK3128** contains an Arm7 chip with a neon FPU and Hardware Float (HF) we should also be able to use some precompiled binaries from the `nightly > linux > armv7-neon-hf > latest` list.
 
-After downloading the `<emulator.so>` (*ex.* nestopia.so) we can move that file to the same directory (`usr/lib/libretro`) as the the **fbalpha** and **mame2016** emulators in. Now you can run NES ROMs. [itch.io](itch.io) has some hoembrew NES games made by some awesome devs. Personally I tried that Space Gulls game and the Micro Mages games.
+After downloading the `<emulator.so>` (*ex.* nestopia.so) we can move that file to the same directory (`usr/lib/libretro`) as the the **fbalpha** and **mame2016** emulators in. Now you can run NES ROMs. [itch.io](itch.io) has some homebrew NES games made by some awesome devs and studios like Morphcat Games. Personally I tried the [Space Gulls](https://morphcatgames.itch.io/spacegulls) game and the [Micro Mages](http://morphcat.de/micromages/) NES  games (both made by Morphcat Games).
 
-For example, to run Micro Mages (I have the `.nes` ROM installed at `/usr/lib/libretro/games/nes/MicroMages.nes`) I would use the command:
+For example, to run Micro Mages (I have the `MicroMages.nes` ROM installed at `/usr/lib/libretro/games/nes/MicroMages.nes`) I would use the command:
 ```bash
 /usr/bin/retroarch -y "12" -c "/usr/lib/libretro/games/zip.cfg" 
     -L "/usr/lib/libretro/nestopia_libretro.so" "/usr/lib/libretro/games/nes/MicroMages.nes"
 ```
 
 
-So, to run Micro Mages at immediately after booting up, I would modify the `/etc/init.d/S50ui` file (around line 29) from:
+So, to run Micro Mages immediately after booting up, I would modify the `/etc/init.d/S50ui` file (around line 29) from:
 ```bash
 if [ `cat /sys/class/drm/card0-HDMI-A-1/status` == "connected" ]; then
 	export MG_CFG_PATH=/usr/local/share/minigui_720p
@@ -159,6 +159,6 @@ if [ `cat /sys/class/drm/card0-HDMI-A-1/status` == "connected" ]; then
 ![image](MicroMagesGameplayCapture.jpg)
 
 
-I also found another Homebrew ROM called [Space Gulls](https://morphcatgames.itch.io/spacegulls) by Morphcat Games. This also runs with the **nestopia** emulator:
+The Homebtew [Space Gulls](https://morphcatgames.itch.io/spacegulls) game also runs on the **nestopia** emulator:
 ![image](SpaceGullTitleCapture.jpg)
 ![image](SpaceGullGameplayCapture.jpg)
