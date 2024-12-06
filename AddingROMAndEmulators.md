@@ -37,7 +37,7 @@ If we run `strings usr/bin/game` we can get a list of all strings within the `ga
 /usr/lib/libretro/games/startp1.sh %d "%s" "%s"
 /usr/lib/libretro/games/startp2.sh %d "%s" "%s"
 ```
-This looks to be how the `usr/bin/game` binary is initiaiting the Contra game instances. We can verify this by taking a look at the three scripts starting with `usr/lib/libretro/start.sh`.
+This looks to be how the `usr/bin/game` binary initiates the Contra game instances. We can verify this by inspecting the three scripts starting with `usr/lib/libretro/start.sh`.
 
 In `usr/lib/libretro/start.sh` we can see it ends by executing
 
@@ -47,8 +47,8 @@ In `usr/lib/libretro/start.sh` we can see it ends by executing
     -L /usr/lib/libretro/$GAME_LIB "$3"\
 ```
 
-The retroarch command has the folliwing form: \
-(the `-y "12"` is most likely a parameter for a custom implementation of retroarch)
+The Retroarch command has the following form: \
+(the `-y "12"` is most likely a parameter for a custom implementation of Retroarch)
 
 ```bash
 retroarch -y "12" -c <config file> -L <emulator.so> <ROM file>
@@ -64,7 +64,7 @@ We can also find some possible ROMs listed as `.zip` files. I'm assuming `fzip` 
 
 ![image](web/ContraZipFilesCapture.png)
 
-In the `usr/lib/start.sh` file we can see that emulator being used is
+In the `usr/lib/start.sh` file we can see that the emulator being used is
 
 ```bash
 $GAME_LIB=mame2016_libretro.so 
