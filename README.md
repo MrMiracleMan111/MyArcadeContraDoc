@@ -12,7 +12,7 @@ After a year of work I have met these goals and am writing this article in the h
 1. [Reading the Flash Memory](ReadingFlash.md)
 2. [Modifying the Flash Memory](WritingFlash.md)
 3. [Adding ROMs and Emulators](AddingROMAndEmulators.md)
-4. [UART Terminal Setup](SetupUARTTerminal.md)
+4. [Serial Terminal Setup](SetupSerialTerminal.md)
 
 ## Advanced
 1. Compiling for the Console (TODO)

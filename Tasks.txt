@@ -3,7 +3,7 @@ Note of things I still need to do
 
 Create Basic Guide for reading and modifying the Flash data.
 
-Create Guide for enabling UART
+Create Guide for enabling Serial Terminal
 
 Create guide for cross compiling
 
