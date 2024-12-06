@@ -1,6 +1,6 @@
 # Setup Serial Terminal
 
-Currently our only way to control the console is by providing it commands in the `/etc/init.d/S50ui` file. What would be really nice is to have an interactive terminal on the console so that we can send commands to the console from a separate device. This will also make debugging issues waaayyyy easier.
+Currently, our only way to control the console is by providing it commands in the `/etc/init.d/S50ui` file. What would be really nice is to have an interactive terminal on the console so that we can send commands to the console from a separate device. This will also make debugging issues waaayyyy easier.
 
 ## Soldering to Serial Pins
 Solder to the following Serial pints. 
@@ -22,10 +22,10 @@ Using the `picocom` tool, we can listen to the Serial line.
 sudo picocom -b 115200 /dev/ttyUSB0
 ```
 
-You should now see something similar to this when rebooting the device while Serial is connected.
+You should now see something similar to image below when rebooting the device while Serial is connected.
 ![image](web/NoSerialCapture.png)
 
-Currently it is not prompting us for a login, to fix that, we need to enable the **serial** device in the device tree blob (.dtb file).
+Currently, the console is not prompting us for a login, to fix that, we need to enable the **serial** device in the device tree blob (.dtb file).
 
 ## Enabling Serial Devices
 
@@ -47,19 +47,19 @@ We can see there are three serial devices available to us:
 2. `serial@20064000`
 3. `serial@20068000`
 
-We're interested in `serial@20060000` since that is the one exposed via the Serial terminal pads on the motherboard (the pads we soldered to). We don't really need to do anything here so we'll move onto the next "serial@" match.
+We're interested in `serial@20060000` since that is the one exposed via the Serial terminal pads on the motherboard (the pads we soldered to). We don't need to do anything here so we'll move on to the next "serial@" match.
 
-At around the 4th match we can see the actual properties of the `serial@20060000` device. In the image below we can see the properties of the `serial@20060000` device. The "*disabled*" string is what's keeping this serial device
+At around the 4th match,h we can see the actual properties of the `serial@20060000` device. In the image below we can see the properties of the `serial@20060000` device. The "*disabled*" string is what's keeping this serial device
 off.
 ![iamge](web/SerialDevicePropertiesCapture.png)
 
 To enable the serial device we need to overwrite the "*disabled*" with "*okay*". Be careful not to **insert** characters (this would increase the size `nand_dump.bin` by a few bytes). We want to **overwrite** the "*disabled*" string with "*okay*" (the size of `nand_dump.bin` should **not** change).
 
-**For those using VSCode** to ensure that you **overwrite**, click on the byte you want to modify, hit the `Del` key, then type in the byte code. 
+**For those using VSCode** to ensure that you **overwrite**, click on the byte you want to modify, hit the `Del` key, and then type in the byte code. 
 
 ![image](web/EnabledSerialCapture.png)
 
-Note, that in the example above, the "bled" in disa**bled** was replaced with `00 00 00 00` in the hex dump. Now that you have enabled serial communciation, you need to write your changes to flash memory.
+Note, that in the example above, the "bled" in disa**bled** was replaced with `00 00 00 00` in the hex dump. Now that you have enabled serial communication, you need to write your changes to flash memory.
 
 ```bash
 sudo ./rkflashtool w 0 262144 < nand_dump.bin
@@ -68,7 +68,7 @@ sudo ./rkflashtool w 0 262144 < nand_dump.bin
 After restarting your device you should be greeted with a login prompt. Use `root` as the login.
 ![image](web/ShellAccessCapture.png)
 
-Congratulations you've Pwned the device! Using this terminal you can directly run commands on the console (no more having to modify `/etc/init.d/S50ui`). For example you could directly run
+Congratulations you've Pwned the device! Using this terminal you can directly run commands on the console (no more having to modify `/etc/init.d/S50ui`). For example, you could directly run
 
 ```bash
 /usr/bin/retroarch -y "12" -c "/usr/lib/libretro/games/zip.cfg" 
