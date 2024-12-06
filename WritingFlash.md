@@ -7,7 +7,7 @@ Previously we learned how to read flash memory from the MyArcade Contra console.
 **IMPORTANT NOTE:** To perform write operations on the flash the console needs to be in Mask ROM Mode, you can enable this by holding down the Volume Up button during boot sequence. You can disable this by rebooting the device. More on this can be found in the [Reading From Flash Memory](ReadingFlash.md) article. 
 
 ## Backing up your Console
-**IMPORTANT** Before you make any modifications you need to backup your Flash Memory. Going forward without a backup is extremely dangerous. To make a backup you can use the following command while the console is connected and in Mask ROM Mode. 
+**IMPORTANT** Before you make any modifications you need to backup your Flash Memory. Proceeding without a backup is extremely dangerous! To make a backup you can use the following command while the console is connected and in Mask ROM Mode. 
 
 ```bash
 sudo ./rkflashtool r 0 262144 > ~/Desktop/backup_nand/nand_dump.bin
@@ -38,7 +38,7 @@ wc squashfs-root.bin
 In my case, the `squashfs-root.bin` file was 61681664 bytes.
 
 ## Flashing Squashfs to NAND
-Now that we have the compressed squashfs binary andfor our modified filesystem, we are ready to update the Flash memory. We will again use `rkflashtool` to modify the flash memory. Remember in the [Reading From Flash Memory](ReadingFlash.md) guide we noted the address that `squashfs` fielsystem starts (address 16777216). To update only the `squashfs` filesystem on the flash memory we need to only overwrite memory starting at that address and we wonly want to write up to the size of our `squashfs-root.bin` file (61681664 bytes).
+Now that we have the compressed squashfs binary andfor our modified filesystem, we are ready to update the Flash memory. We will again use `rkflashtool` to modify the flash memory. Remember in the [Reading From Flash Memory](ReadingFlash.md) guide we noted the address that `squashfs` fielsystem starts (address 16777216). To update only the `squashfs` filesystem on the flash memory we must only overwrite memory starting at that address. The number of bytes written must match the size of our `squashfs-root.bin` file (61681664 bytes).
 
 
 The write mode for `rkflashtool` takes the following form:
@@ -47,7 +47,7 @@ The write mode for `rkflashtool` takes the following form:
 rkflashtool w <start address> <size of memory>
 ```
 
-**IMPORTANT NOTE:** Since the flash memory uses blocks of 512 bytes, the **starting address** and **size of memory** we pass need to be divded by 512. (*Ex.* the *starting-address* would be 16777216/512 and our *size of memory* would be 61681664/512) 
+**IMPORTANT NOTE:** Since the flash memory uses blocks of 512 bytes, the **starting address** and **size of memory** we pass need to be divided by 512. (*Ex.* the *starting-address* would be 16777216/512 and our *size of memory* would be 61681664/512) 
 
 
 ```bash
@@ -88,7 +88,7 @@ echo "Done!"
 rm $SQUASH_FILENAME
 ```
 
-This script expects you have the following file layout:
+This script expects your nand dump to have the following file layout:
 
 ```
 _nand_dump.bin.extracted
