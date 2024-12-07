@@ -17,3 +17,4 @@ After a year of work I have met these goals and am writing this article in the h
 ## Advanced
 1. Compiling for the Console (TODO)
 2. SDL2 modifications (TODO)
+3. USB Debug Mode
