@@ -1,6 +1,6 @@
 # Adding ROMs and Emulators
 
-This article assumes you have read the [Reading From Flash Memory](ReadingFlash.md) guide and the [Writing to Flash](WritingFlash.md) guide.
+This article assumes you have read the [Reading From Flash Memory](ReadingFlash.md) guide and the [Writing to Flash](WritingFlash.md) guide. If you're confident in your soldering skills you can read the [Setup Serial Terminal](SetupSerialTerminal.md) guide. This will give you a serial terminal on the console which will make debugging issues in this article a bit easier.
 
 
 ## Contra Console Game System
@@ -162,3 +162,8 @@ if [ `cat /sys/class/drm/card0-HDMI-A-1/status` == "connected" ]; then
 The Homebtew [Space Gulls](https://morphcatgames.itch.io/spacegulls) game also runs on the **nestopia** emulator:
 ![image](web/SpaceGullTitleCapture.jpg)
 ![image](web/SpaceGullGameplayCapture.jpg)
+
+<div style="display: flex; justify-content: space-between;">
+  <a href="WritingFlash.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; Writing to Flash</a>
+  <a href="SetupSerialTerminal.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Setup Serial Terminal &rarr;</a>
+</div>

@@ -124,3 +124,8 @@ The other files extracted by `binwalk` (such as `1000000.squashfs`) won't impact
 cd _nand_dump.bin.extracted
 ./UploadFilesystem.sh
 ```
+
+<div style="display: flex; justify-content: space-between;">
+  <a href="ReadingFlash.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; Reading from Flash</a>
+  <a href="AddingROMAndEmulators.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Adding ROMs and Emulators &rarr;</a>
+</div>

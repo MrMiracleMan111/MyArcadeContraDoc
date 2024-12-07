@@ -79,3 +79,8 @@ in the terminal and you'll get something like this in the output.
 ![image](web/ContraConsoleCommandCapture.png)
 
 While there are errors, it doesn't seem to affect the game as it still runs perfectly fine.
+
+<div style="display: flex; justify-content: space-between;">
+  <a href="AddingROMAndEmulators.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; Adding ROMs and Emulators</a>
+  <a href="README.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Table of Contents &rarr;</a>
+</div>
