@@ -12,7 +12,7 @@ To get a dump of the flash memory we'll use the command:
 
 
 ```bash
-sudo ./rkflashtool r 0 262144 > ~/Desktop/nand_dumps/nand_dump.bin
+sudo rkflashtool r 0 262144 > ~/Desktop/nand_dumps/nand_dump.bin
 ```
 (I am copying this command from this [article](https://trustedsec.com/blog/hacking-the-my-arcade-contra-pocket-player-part-i))
 

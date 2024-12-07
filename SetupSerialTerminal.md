@@ -34,7 +34,7 @@ I will be using the VSCode Hex Editor Extension for the following part.
 We'll start by grabbing a dump of the flash memory
 
 ```bash
-sudo ./rkflashtool r 0 262144 > nand_dump.bin
+sudo rkflashtool r 0 262144 > nand_dump.bin
 ```
 
 Open the `nand_dump.bin` file using a hex editor. We will now search for the following string "serial@"
@@ -62,7 +62,7 @@ To enable the serial device we need to overwrite the "*disabled*" with "*okay*".
 Note, that in the example above, the "bled" in disa**bled** was replaced with `00 00 00 00` in the hex dump. Now that you have enabled serial communication, you need to write your changes to flash memory.
 
 ```bash
-sudo ./rkflashtool w 0 262144 < nand_dump.bin
+sudo rkflashtool w 0 262144 < nand_dump.bin
 ```
 
 After restarting your device you should be greeted with a login prompt. Use `root` as the login.

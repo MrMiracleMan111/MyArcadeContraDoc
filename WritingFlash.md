@@ -10,13 +10,13 @@ Previously we learned how to read flash memory from the MyArcade Contra console.
 **IMPORTANT** Before you make any modifications you need to backup your Flash Memory. Proceeding without a backup is extremely dangerous! To make a backup you can use the following command while the console is connected and in Mask ROM Mode. 
 
 ```bash
-sudo ./rkflashtool r 0 262144 > ~/Desktop/backup_nand/nand_dump.bin
+sudo rkflashtool r 0 262144 > ~/Desktop/backup_nand/nand_dump.bin
 ```
 
 If you need to restore your console using a backup you can use the following command (assuming you have made a backup):
 
 ```bash
-sudo ./rkflashtool w 0 262144 < ~/Desktop/backup_nand/nand_dump.bin
+sudo rkflashtool w 0 262144 < ~/Desktop/backup_nand/nand_dump.bin
 ```
 
 ## Squashing the Filesystem
