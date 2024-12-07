@@ -40,3 +40,8 @@ We can now dive into the filesystem and check the available programs (`usr/bin` 
 2. `mame2016_libretro.so`
 
 If we look in the `usr/lib/libretro/games` folder we should see two folders, `fzip` and `mzip`. I know `fzip` contains Contra ROMs for the **fbalpha** emulator which implies that `mzip` contains Contra ROMs for the **mame2016** emulator.
+
+<div style="display: flex; justify-content: space-between;">
+  <a href="README.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; Table of Contents</a>
+  <a href="WritingFlash.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Writing to Flash &rarr;</a>
+</div>

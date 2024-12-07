@@ -6,7 +6,7 @@ Last year I learned about hardware hacking and was looking for a way to get into
 1. Load separate ROMs onto the console
 2. Compile and load my own programs onto the console
 
-After a year of work I have met these goals and am writing this article in the hope that anyone with similar aspirations can use this as a fallback if they get stuck. 
+After a year of work I have met these goals and am writing this article in the hope that anyone with similar aspirations can use this as a fallback if they get stuck.
 
 ## The Basics
 1. [Reading the Flash Memory](ReadingFlash.md)
