@@ -1,6 +1,6 @@
 # Adding ROMs and Emulators
 
-This article assumes you have read the [Reading From Flash Memory](ReadingFlash.md) guide and the [Writing to Flash](WritingFlash.md) guide. If you're confident in your soldering skills you can read the [Setup Serial Terminal](SetupSerialTerminal.md) guide. This will give you a serial terminal on the console which will make debugging issues in this article a bit easier.
+This article assumes you have read the [Reading From Flash Memory](ReadingFlash.md) guide and the [Writing to Flash](WritingFlash.md) guide. ~~If you're confident in your soldering skills you can read the [Setup Serial Terminal](SetupSerialTerminal.md) guide~~. If you're confident in your hex editor skills, give the [USB Debug Mode](USBDebug.md) guide a read. This will give you an interactive terminal on the PC that controls the console which will make debugging issues on the console way easier.
 
 
 ## Contra Console Game System
