@@ -1,4 +1,6 @@
-# Setup Serial Terminal
+# Setup Serial Terminal (OUTDATED)
+
+**IMPORTANT** This guide is outdated since the same effect can be achieved using the [USB Debug Mode](USBDebug.md) guide.
 
 Currently, our only way to control the console is by providing it commands in the `/etc/init.d/S50ui` file. What would be really nice is to have an interactive terminal on the console so that we can send commands to the console from a separate device. This will also make debugging issues waaayyyy easier.
 
@@ -81,6 +83,6 @@ in the terminal and you'll get something like this in the output.
 While there are errors, it doesn't seem to affect the game as it still runs perfectly fine.
 
 <div style="display: flex; justify-content: space-between;">
-  <a href="AddingROMAndEmulators.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; Adding ROMs and Emulators</a>
+  <a href="USBDebug.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; USB Debug Mode</a>
   <a href="README.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Table of Contents &rarr;</a>
 </div>

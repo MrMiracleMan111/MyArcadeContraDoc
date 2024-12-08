@@ -165,5 +165,5 @@ The Homebtew [Space Gulls](https://morphcatgames.itch.io/spacegulls) game also r
 
 <div style="display: flex; justify-content: space-between;">
   <a href="WritingFlash.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; Writing to Flash</a>
-  <a href="SetupSerialTerminal.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Setup Serial Terminal &rarr;</a>
+  <a href="USBDebug.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">USB Debug Mode &rarr;</a>
 </div>
