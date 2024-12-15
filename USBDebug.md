@@ -86,5 +86,5 @@ This should create an interactive shell between the PC and console. Congratulati
 
 <div style="display: flex; justify-content: space-between;">
   <a href="README.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">&larr; Table of Contents</a>
-  <a href="WritingFlash.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Setup Serial Terminal &rarr;</a>
+  <a href="SetupSerialTeriminal.md" style="text-decoration: none; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">Setup Serial Terminal &rarr;</a>
 </div>
