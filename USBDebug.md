@@ -82,6 +82,8 @@ To inititate the debug terminal, run the following command on the PC:
 
 This should create an interactive shell between the PC and console. Congratulations you know have shell access to the console!
 
+(Your filesystem will not look like the one below, this is a picture from after I added several custom programs to my console)
+
 ![image](web/ADBShellCapture.png)
 
 <div style="display: flex; justify-content: space-between;">
