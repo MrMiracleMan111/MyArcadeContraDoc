@@ -1,4 +1,4 @@
-# Setup Serial Terminal (OUTDATED)
+# Setup Serial Terminal (THIS GUIDE IS REDUNDANT SEE BELOW)
 
 **IMPORTANT** This guide is outdated since the same effect can be achieved using the [USB Debug Mode](USBDebug.md) guide.
 
