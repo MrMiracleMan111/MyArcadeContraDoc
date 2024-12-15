@@ -1,6 +1,6 @@
 # Setup Serial Terminal (THIS GUIDE IS REDUNDANT SEE BELOW)
 
-**IMPORTANT** This guide is outdated since the same effect can be achieved using the [USB Debug Mode](USBDebug.md) guide.
+**IMPORTANT** This guide is no longer useful since the same effect can be achieved much easier using the [USB Debug Mode](USBDebug.md) guide. 
 
 Currently, our only way to control the console is by providing it commands in the `/etc/init.d/S50ui` file. What would be really nice is to have an interactive terminal on the console so that we can send commands to the console from a separate device. This will also make debugging issues waaayyyy easier.
 
