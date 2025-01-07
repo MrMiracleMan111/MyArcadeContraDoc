@@ -54,7 +54,7 @@ After extracting the device tree from the `.dtb` file located in the nand dump (
   ...
 ```
 
-The `dr_mode = "host"` gives us a interesting clue. For a PC to recognize a device, that device cannot be in the `host` mode, it must either be in `peripheral` or `otg` mode. This explains why ADBD was failing, since the console was in `host` mode, PCs (which are typically also in `host` mode) will not recognize it. To fix this we can use the `otg` mode. In the device tree entry for `usb@10180000`, we will have to change `dr_mode = "host"` to `dr_mode = "otg"`.
+The `dr_mode = "host"` gives us a interesting clue. For a PC to recognize a USB device, that device cannot be in the `host` mode, it must either be in `peripheral` or `otg` mode. This explains why ADBD was failing, since the console was in `host` mode, PCs (which are typically also in `host` mode) will not recognize it. To fix this we can use the `otg` mode. In the device tree entry for `usb@10180000`, we will have to change `dr_mode = "host"` to `dr_mode = "otg"`.
 
 
 ## Enabling the USB
