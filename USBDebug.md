@@ -13,7 +13,7 @@ sudo rkflashtool r 0 262144 > nand_dump.bin
 
 If we take a look in `/etc/init.d` we see a script `S50usbdevice`. Looking inside the script we can see that it is trying setting up an **Android Debug Bridge Daemon** (ADBD) using the USB port. If this works, we should see the console appear as an Android device whenever we connect it to a PC. However, the console is currently not recognized as a device by the PC meaning this **Android Debug Bridge Daemon** is probably not working.
 
-This probably means that the USB driver/device tree entry is missing or the USB is not in the proper mode (we'll get to that later). Running `lsusb` will list the USB devices recognized by the system. Since we're no seeing the **Android Debug Bridge Daemon**, the drivers may not be an issue:
+This probably means that the USB driver/device tree entry is missing or the USB is not in the proper mode (we'll get to that later). Running `lsusb` will list the USB devices recognized by the system. Since we're not seeing the **Android Debug Bridge Daemon**, the drivers may not be the issue:
 
 ![image](web/ListUSBCapture.png)
 
