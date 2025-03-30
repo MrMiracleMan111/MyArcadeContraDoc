@@ -159,7 +159,7 @@ if [ `cat /sys/class/drm/card0-HDMI-A-1/status` == "connected" ]; then
 ![image](web/MicroMagesGameplayCapture.jpg)
 
 
-The Homebtew [Space Gulls](https://morphcatgames.itch.io/spacegulls) game also runs on the **nestopia** emulator:
+The Homebrew [Space Gulls](https://morphcatgames.itch.io/spacegulls) game also runs on the **nestopia** emulator:
 ![image](web/SpaceGullTitleCapture.jpg)
 ![image](web/SpaceGullGameplayCapture.jpg)
 
