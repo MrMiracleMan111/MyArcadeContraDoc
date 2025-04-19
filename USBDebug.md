@@ -59,7 +59,7 @@ The `dr_mode = "host"` gives us a interesting clue. For a PC to recognize a USB 
 
 ## Enabling the USB
 
-To do this we will need to modify the device tree within the flash memory. If you've read the [Setup Serial Terminal](SetupSerialTerminal.md) this process will be very similar.
+To do this we will need to modify the device tree within the flash memory. If you've read the [Setup Serial Terminal](SetupSerialTerminal.md) guide, this process will be very similar.
 
 After dumping the flash memory, search for `usb@10180000`. The first match will probably not be what we want. We want to find the `usb@10180000` device tree entry that contains the string `host` (around the 3rd match)
 ![image](web/FindOTGCapture.png)
