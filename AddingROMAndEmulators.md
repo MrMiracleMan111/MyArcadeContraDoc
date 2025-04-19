@@ -116,7 +116,7 @@ If we want to add other emulators, we need to find their shared object files `<e
 
 ![image](web/EmulatorBinariesCapture.png)
 
-So far I have been able to get the [nestopia]() and [dosbox]() emulators to work on this (dosbox can even run DOOM however, the input mappings need to be fixed). Currently we are using precompiled binaries from the `nightly > linux > armhf > latest` list however since the **RK3128** contains an Arm7 chip with a neon FPU and Hardware Float (HF) we should also be able to use some precompiled binaries from the `nightly > linux > armv7-neon-hf > latest` list.
+So far I have been able to get the [nestopia]() and [dosbox]() emulators to work on this (dosbox can even run DOOM however, the input mappings need to be fixed). Currently we are using precompiled binaries from the `nightly > linux > armhf > latest` list however since the **RK3128** contains an Arm7 chip with a Neon FPU and Hardware Float (HF) we should also be able to use some precompiled binaries from the `nightly > linux > armv7-neon-hf > latest` list.
 
 After downloading the `<emulator.so>` (*ex.* nestopia.so) we can move that file to the same directory (`usr/lib/libretro`) as the the **fbalpha** and **mame2016** emulators in. Now you can run NES ROMs. [itch.io](itch.io) has some homebrew NES games made by some awesome devs and studios like Morphcat Games. Personally I tried the [Space Gulls](https://morphcatgames.itch.io/spacegulls) game and the [Micro Mages](http://morphcat.de/micromages/) NES  games (both made by Morphcat Games).
 
