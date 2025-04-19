@@ -18,7 +18,7 @@ This probably means that the USB driver/device tree entry is missing or the USB 
 ![image](web/ListUSBCapture.png)
 
 
-After extracting the device tree from the `.dtb` file located in the nand dump (I won't be covering how to do that here), we see that there are multiple entries for USB devices:
+After extracting the device tree from the `.dtb` file located in the nand dump (I won't be covering how to do that here, however, if you are familiar with the [ReadingFlash](ReadingFlash.md) guide, you can do this fairly easily by pulling the `.dtb` file from the NAND dump using the address provided by `binwalk`), we see that there are multiple entries for USB devices:
 
 **device_tree.dts**
 ```
