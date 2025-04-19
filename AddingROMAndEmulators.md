@@ -8,7 +8,7 @@ Poking around the `etc/init.d` we can see some startup scripts that run when the
 
 `etc/init.d/S50ui`
 
-is of particular intertest. Around line 29 of `etc/init.d/S50ui` we see the following commands
+is of particular interest. Around line 29 of `etc/init.d/S50ui` we see the following commands
 ```bash
 if [ `cat /sys/class/drm/card0-HDMI-A-1/status` == "connected" ]; then
 	export MG_CFG_PATH=/usr/local/share/minigui_720p
@@ -74,7 +74,7 @@ Which is located at `usr/lib/libretro/mame2016_libretro.so`.
 
 ## Running ROMs
 
-Now that we have all the information needed to construct a command to initiate an instance of Contra 1 for a single player:
+We now have all the information needed to construct a command to initiate an instance of Contra 1 for a single player:
 
 ```bash
 /usr/bin/retroarch -y "12" -c "/usr/lib/libretro/games/zip.cfg" 
