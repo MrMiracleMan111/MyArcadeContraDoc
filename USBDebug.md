@@ -2,7 +2,7 @@
 
 Currently, our only way to control the console is by providing it commands in the `/etc/init.d/S50ui` file. What would be really nice is to have an interactive terminal on the console so that we can send commands to the console from a separate device. This will also make debugging issues waaayyyy easier.
 
-First we need to dump the flash memory
+First, we need to dump the flash memory
 
 ```bash
 sudo rkflashtool r 0 262144 > nand_dump.bin
@@ -18,7 +18,7 @@ This probably means that the USB driver/device tree entry is missing or the USB 
 ![image](web/ListUSBCapture.png)
 
 
-After extracting the device tree from the `.dtb` file located in the nand dump (I won't be covering how to do that here, however, if you are familiar with the [ReadingFlash](ReadingFlash.md) guide, you can do this fairly easily by pulling the `.dtb` file from the NAND dump using the address provided by `binwalk`), we see that there are multiple entries for USB devices:
+After extracting the device tree from the `.dtb` file located in the NAND dump (I won't be covering how to do that here, however, if you are familiar with the [ReadingFlash](ReadingFlash.md) guide, you can do this fairly easily by pulling the `.dtb` file from the NAND dump using the address provided by `binwalk`), we see that there are multiple entries for USB devices:
 
 **device_tree.dts**
 ```
@@ -54,33 +54,33 @@ After extracting the device tree from the `.dtb` file located in the nand dump (
   ...
 ```
 
-The `dr_mode = "host"` gives us a interesting clue. For a PC to recognize a USB device, that device cannot be in the `host` mode, it must either be in `peripheral` or `otg` mode. This explains why ADBD was failing, since the console was in `host` mode, PCs (which are typically also in `host` mode) will not recognize it. To fix this we can use the `otg` mode. In the device tree entry for `usb@10180000`, we will have to change `dr_mode = "host"` to `dr_mode = "otg"`.
+The `dr_mode = "host"` gives us an interesting clue. For a PC to recognize a USB device, that device cannot be in the `host` mode, it must either be in `peripheral` or `otg` mode. This explains why ADBD was failing, since the console was in `host` mode, PCs (which are typically also in `host` mode) will not recognize it. To fix this, we can use the `otg` mode. In the device tree entry for `usb@10180000`, we will have to change `dr_mode = "host"` to `dr_mode = "otg"`.
 
 
 ## Enabling the USB
 
-To do this we will need to modify the device tree within the flash memory. If you've read the [Setup Serial Terminal](SetupSerialTerminal.md) guide, this process will feel very familiar.
+To do this, we will need to modify the device tree within the flash memory. If you've read the [Setup Serial Terminal](SetupSerialTerminal.md) guide, this process will feel very familiar.
 
 After dumping the flash memory, search for `usb@10180000`. The first match will probably not be what we want. We want to find the `usb@10180000` device tree entry that contains the string `host` (around the 3rd match)
 ![image](web/FindOTGCapture.png)
 
-We now need to overwrite `host` with `otg` and replace the **t** in hos**t** with a null byte (0x00). Be careful not to insert additional bytes while writing "otg" (the nand dump file size should be exactly the same before and after you edit).
+We now need to overwrite `host` with `otg` and replace the **t** in hos**t** with a null byte (0x00). Be careful not to insert additional bytes while writing "otg" (the NAND dump file size should be exactly the same before and after you edit).
 ![image](web/EnableOTGCapture.png)
 
 Now we'll install the `adb` program (`sudo apt install adb` on Linux).
 
 
-After connecting the conosle to a PC, we can list connected `adb` devices by running the following command on the PC:
+After connecting the console to a PC, we can list connected `adb` devices by running the following command on the PC:
 
 `adb devices`
 
 ![image](web/ListADBDevices.png)
 
-To inititate the debug terminal, run the following command on the PC:
+To initiate the debug terminal, run the following command on the PC:
 
 `adb shell`
 
-This should create an interactive shell between the PC and console. Congratulations you know have shell access to the console!
+This should create an interactive shell between the PC and console. Congratulations, you now have shell access to the console!
 
 (Your filesystem will not look like the one below, this is a picture from after I added several custom programs to my console)
 
